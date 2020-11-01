@@ -2,7 +2,7 @@ package com.ming.pachong2020.entity;
 
 import java.util.Date;
 
-public class Movie {
+public class Movieanalysis {
     private Integer movieId;
 
     private Integer detailId;
@@ -19,7 +19,7 @@ public class Movie {
 
     private Date collectingTime;
 
-    public Movie(Integer movieId, Integer detailId, String movieName, String sname, String namehash, String movieType, String movieUrl, Date collectingTime) {
+    public Movieanalysis(Integer movieId, Integer detailId, String movieName, String sname, String namehash, String movieType, String movieUrl, Date collectingTime) {
         this.movieId = movieId;
         this.detailId = detailId;
         this.movieName = movieName;
@@ -30,7 +30,7 @@ public class Movie {
         this.collectingTime = collectingTime;
     }
 
-    public Movie() {
+    public Movieanalysis() {
         super();
     }
 

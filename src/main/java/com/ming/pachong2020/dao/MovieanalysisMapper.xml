@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ming.pachong2020.dao.MovieMapper">
-  <resultMap id="BaseResultMap" type="com.ming.pachong2020.entity.Movie">
+<mapper namespace="com.ming.pachong2020.dao.MovieanalysisMapper">
+  <resultMap id="BaseResultMap" type="com.ming.pachong2020.entity.Movieanalysis">
     <constructor>
       <idArg column="movie_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="detail_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -74,14 +74,14 @@
   <sql id="Base_Column_List">
     movie_id, detail_id, movie_name, sname, namehash, movie_type, movie_url, collecting_time
   </sql>
-  <select id="selectByExample" parameterType="com.ming.pachong2020.entity.MovieExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from movie
+    from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -92,29 +92,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from movie
+    from movie_analysis
     where movie_id = #{movieId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from movie
+    delete from movie_analysis
     where movie_id = #{movieId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ming.pachong2020.entity.MovieExample">
-    delete from movie
+  <delete id="deleteByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample">
+    delete from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ming.pachong2020.entity.Movie">
-    insert into movie (movie_id, detail_id, movie_name, 
+  <insert id="insert" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    insert into movie_analysis (movie_id, detail_id, movie_name, 
       sname, namehash, movie_type, 
       movie_url, collecting_time)
     values (#{movieId,jdbcType=INTEGER}, #{detailId,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, 
       #{sname,jdbcType=VARCHAR}, #{namehash,jdbcType=VARCHAR}, #{movieType,jdbcType=VARCHAR}, 
       #{movieUrl,jdbcType=VARCHAR}, #{collectingTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.ming.pachong2020.entity.Movie">
-    insert into movie
+  <insert id="insertSelective" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    insert into movie_analysis
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="movieId != null">
         movie_id,
@@ -168,14 +168,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ming.pachong2020.entity.MovieExample" resultType="java.lang.Integer">
-    select count(*) from movie
+  <select id="countByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample" resultType="java.lang.Integer">
+    select count(*) from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update movie
+    update movie_analysis
     <set>
       <if test="record.movieId != null">
         movie_id = #{record.movieId,jdbcType=INTEGER},
@@ -207,7 +207,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update movie
+    update movie_analysis
     set movie_id = #{record.movieId,jdbcType=INTEGER},
       detail_id = #{record.detailId,jdbcType=INTEGER},
       movie_name = #{record.movieName,jdbcType=VARCHAR},
@@ -220,8 +220,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ming.pachong2020.entity.Movie">
-    update movie
+  <update id="updateByPrimaryKeySelective" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    update movie_analysis
     <set>
       <if test="detailId != null">
         detail_id = #{detailId,jdbcType=INTEGER},
@@ -247,8 +247,8 @@
     </set>
     where movie_id = #{movieId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ming.pachong2020.entity.Movie">
-    update movie
+  <update id="updateByPrimaryKey" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    update movie_analysis
     set detail_id = #{detailId,jdbcType=INTEGER},
       movie_name = #{movieName,jdbcType=VARCHAR},
       sname = #{sname,jdbcType=VARCHAR},
@@ -258,7 +258,7 @@
       collecting_time = #{collectingTime,jdbcType=TIMESTAMP}
     where movie_id = #{movieId,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.ming.pachong2020.entity.Movie">
+  <resultMap id="BaseResultMap" type="com.ming.pachong2020.entity.Movieanalysis">
     <constructor>
       <idArg column="movie_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="detail_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -331,14 +331,14 @@
   <sql id="Base_Column_List">
     movie_id, detail_id, movie_name, sname, namehash, movie_type, movie_url, collecting_time
   </sql>
-  <select id="selectByExample" parameterType="com.ming.pachong2020.entity.MovieExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from movie
+    from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -349,29 +349,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from movie
+    from movie_analysis
     where movie_id = #{movieId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from movie
+    delete from movie_analysis
     where movie_id = #{movieId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ming.pachong2020.entity.MovieExample">
-    delete from movie
+  <delete id="deleteByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample">
+    delete from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ming.pachong2020.entity.Movie">
-    insert into movie (movie_id, detail_id, movie_name, 
+  <insert id="insert" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    insert into movie_analysis (movie_id, detail_id, movie_name, 
       sname, namehash, movie_type, 
       movie_url, collecting_time)
     values (#{movieId,jdbcType=INTEGER}, #{detailId,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, 
       #{sname,jdbcType=VARCHAR}, #{namehash,jdbcType=VARCHAR}, #{movieType,jdbcType=VARCHAR}, 
       #{movieUrl,jdbcType=VARCHAR}, #{collectingTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.ming.pachong2020.entity.Movie">
-    insert into movie
+  <insert id="insertSelective" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    insert into movie_analysis
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="movieId != null">
         movie_id,
@@ -425,14 +425,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ming.pachong2020.entity.MovieExample" resultType="java.lang.Integer">
-    select count(*) from movie
+  <select id="countByExample" parameterType="com.ming.pachong2020.entity.MovieanalysisExample" resultType="java.lang.Integer">
+    select count(*) from movie_analysis
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update movie
+    update movie_analysis
     <set>
       <if test="record.movieId != null">
         movie_id = #{record.movieId,jdbcType=INTEGER},
@@ -464,7 +464,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update movie
+    update movie_analysis
     set movie_id = #{record.movieId,jdbcType=INTEGER},
       detail_id = #{record.detailId,jdbcType=INTEGER},
       movie_name = #{record.movieName,jdbcType=VARCHAR},
@@ -477,8 +477,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ming.pachong2020.entity.Movie">
-    update movie
+  <update id="updateByPrimaryKeySelective" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    update movie_analysis
     <set>
       <if test="detailId != null">
         detail_id = #{detailId,jdbcType=INTEGER},
@@ -504,8 +504,8 @@
     </set>
     where movie_id = #{movieId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ming.pachong2020.entity.Movie">
-    update movie
+  <update id="updateByPrimaryKey" parameterType="com.ming.pachong2020.entity.Movieanalysis">
+    update movie_analysis
     set detail_id = #{detailId,jdbcType=INTEGER},
       movie_name = #{movieName,jdbcType=VARCHAR},
       sname = #{sname,jdbcType=VARCHAR},
